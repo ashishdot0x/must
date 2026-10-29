@@ -85,7 +85,6 @@ The independent fixtures in `tests/independentOracle.js` calculate selected dist
 - `ASSUMPTIONS.md` — supplied rules and proposed interpretations.
 - `intent.md` — investigation, prioritization, and scope decisions.
 - `directive.md` — engineering handoff, results, and limitations.
-- `LOOM_SCRIPT.md` — walkthrough script; no recording has been made.
 
 ## Limitations
 
@@ -96,4 +95,4 @@ The independent fixtures in `tests/independentOracle.js` calculate selected dist
 - Boundary and hole-boundary behavior is proposed rather than confirmed business policy.
 - Full expected-data independence is limited by shared Turf/model assumptions.
 - No billing rate is provided, so distance discrepancies are not converted to monetary values.
-- Repository, commit, and Loom placeholders remain pending.
+- Repository and commit placeholders remain pending.

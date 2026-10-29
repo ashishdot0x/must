@@ -19,3 +19,6 @@ coverage/
 
 # Local logs
 *.log
+
+# Local walkthrough script
+LOOM_SCRIPT.md

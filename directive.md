@@ -132,4 +132,3 @@ npm run test:report
 - [QA TOOL] `check.js` and the `check` / `check:map` npm scripts.
 - [FIX COMMIT] Pending — no Git history or commit hash is available in the current workspace.
 - [TEST RESULTS] `reports/test_results.json`.
-- [LOOM] TODO — recording not yet made.
