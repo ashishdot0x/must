@@ -1,0 +1,21 @@
+node_modules/
+
+# Environment files and local secrets
+.env
+.env.*
+!.env.example
+
+# Temporary and editor files
+*.tmp
+*.temp
+*.swp
+*~
+.DS_Store
+Thumbs.db
+
+# Test and coverage output
+coverage/
+.nyc_output/
+
+# Local logs
+*.log

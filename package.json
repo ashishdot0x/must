@@ -1,0 +1,26 @@
+{
+  "name": "match-hire-gps-qa",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "vitest run",
+    "test:report": "vitest run --reporter=json --outputFile=reports/test_results.json",
+    "check": "node check.js data/pings.csv",
+    "check:map": "node check.js data/pings.csv --map"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "module",
+  "dependencies": {
+    "@turf/turf": "^7.4.0",
+    "csv-parse": "^7.0.3",
+    "csv-stringify": "^6.9.0",
+    "luxon": "^3.7.2",
+    "seedrandom": "^3.0.5"
+  },
+  "devDependencies": {
+    "vitest": "^5.0.5"
+  }
+}
