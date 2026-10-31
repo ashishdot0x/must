@@ -100,5 +100,3 @@ The independent fixtures in `tests/independentOracle.js` calculate selected dist
 
 - GitHub repository: published at [github.com/ashishdot0x/must](https://github.com/ashishdot0x/must).
 - Final snapshot: commit `cc017364c15bc45a1eb5677741623c888f05a5dd43`, `chore: finalize GPS QA submission`; no separate fix-only commit exists in the inspected history.
-- Loom video: not recorded. No Loom video file or Loom link is included in this repository.
-- Submission: incomplete pending the Loom recording.
