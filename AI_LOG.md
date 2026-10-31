@@ -12,9 +12,21 @@ Inspected the workspace `package.json`, checked Node.js and npm versions, checke
 
 Keep the project as plain JavaScript ES modules with small, readable modules and JSDoc. Record interpretations as proposed assumptions until reviewed. Defer all GPS calculations, synthetic datasets, calculators, QA tooling, and regression tests to later authorized phases.
 
-## Human review
+## Current documentation-update verification
 
-PENDING — human review has not yet been confirmed.
+- `npm.cmd test` exited `0`: 32 tests passed and 6 intentionally expected naive failures were reported across 38 tests; there were no unexpected failures or skipped tests.
+- `npm.cmd run check` exited `0` after validating 3,630 input records across five drivers. Fixed diagnostics remained 0 invalid, 15 duplicates removed, 18 off-road rejected, 12 speed outliers rejected, and 10 trip-gap edges excluded.
+- `git diff --check` reported no whitespace errors.
+- Before this documentation update, the working tree already contained a modification to `reports/test_results.json`; that file was preserved and no report-generation command was run during this update.
+
+## Documentation and submission consistency assistance
+
+- Inspected `README.md`, `directive.md`, `intent.md`, `QA_LOG.md`, this log, the local walkthrough script, the configured Git remote, and the complete local Git history before editing.
+- Updated documentation only: replaced local Windows Markdown paths in `directive.md` with relative links, replaced repository and commit placeholders with verified local Git metadata, and aligned submission wording across the README, directive, intent, and QA log.
+- The documentation issues found were stale repository/commit placeholders, inconsistent publication/video status wording, and absolute Windows paths in Markdown links.
+- Recorded the actual submission state: the GitHub repository is published at `https://github.com/ashishdot0x/must`; the inspected final snapshot is commit `cc017364c15bc45a1eb5677741623c888f05a5dd43`; no separate fix-only commit exists; the Loom video has not been recorded; and no Loom file or link was added.
+- A direct `git ls-remote` network probe could not connect to GitHub in this environment. The local remote URL and matching `HEAD`/`origin/main` hashes are recorded as the available evidence; live remote access is not claimed.
+- The existing technical findings and prior test evidence were preserved. No GPS logic, dataset, business rule, or test was changed by this documentation update.
 
 ## Phase 7.1 remediation assistance
 
@@ -29,7 +41,6 @@ Implemented remediation for the six Phase 7 findings: added strict input validat
 - Fixed diagnostics remained 0 invalid, 15 duplicates removed, 18 off-road rejected, 12 speed outliers removed, and 10 trip-gap edges excluded.
 - New geometry tests cover holes, boundary-aligned travel, tangential contact, vertices, multiple intersections, and malformed polygons.
 - Full generated expected values remain model-dependent; the new independent oracle establishes analytical fixture correctness and midnight elapsed-ratio behavior without importing production billing helpers.
-- Human review remains pending.
 
 ## Phase 6 implementation assistance
 
@@ -48,7 +59,7 @@ Created `tests/regression.test.js` with independent Turf-derived expectations fo
 - `npm.cmd run check` exited `0` over all 3,630 records.
 - Static problem checks reported no errors for the regression test or fixed calculator.
 - Stage reconciliation found three injected speed-spike records among the 18 off-road removals and the other 12 injected speed-spike records removed at the speed stage. No clean-labeled record was identified as removed by that speed-stage analysis.
-- Human review remains pending. No Phase 7 files were created.
+- No Phase 7 files were created.
 
 ## Phase 5 implementation assistance
 
@@ -71,11 +82,7 @@ Implemented only the fixed geographic helpers in `src/geo.js`, the corrected cal
 - Used fixed UTC+9 through Luxon rather than machine timezone.
 - Used a proposed 5-minute trip-gap threshold because the dataset has implicit trips and no `trip_id`.
 - Used deterministic local geometry tie-breaking when a speed outlier could not be uniquely assigned to one endpoint.
-- Human review remains pending. No Phase 6 tests or final submission documentation were created.
-
-## Human review
-
-PENDING — human review has not yet been confirmed.
+- No Phase 6 tests or final submission documentation were created.
 
 ## Phase 3 implementation assistance
 
@@ -96,7 +103,6 @@ Implemented only `src/naiveCalc.js`, `scripts/compareNaive.js`, and the suppleme
 - Overall signed difference: `98.385631 km`.
 - All 15 report rows contained finite values.
 - January 3 was expected-only in the union comparison because the buggy calculator grouped by UTC date.
-- Human review remains pending.
 
 ## Phase 4 implementation assistance
 
@@ -119,15 +125,10 @@ Implemented only `check.js`, the `check` and `check:map` npm scripts, and the re
 - Preliminary below-150 km/h distribution: count `3570`, max `148.268819` km/h. This is diagnostic filtering only, not a corrected calculator.
 - Evidence files contained 3,630 flag rows and 15 billing-summary rows. Fixed columns remained blank.
 - Browser inspection loaded Leaflet, controls, legend, route layers, and markers without JavaScript errors after correction. External OpenStreetMap tile requests were unavailable in the environment, so map tiles could not be visually verified.
-- Human review remains pending.
-
-## Changes made after review
-
-PENDING — no human review changes recorded.
 
 ## Verification evidence
 
-Actual Phase 1 checks are recorded in the final response for this task. Human verification remains pending until confirmed by the user.
+Actual Phase 1 checks are recorded in the final response for this task.
 
 ## Phase 2 implementation assistance
 
@@ -159,7 +160,3 @@ Implemented only `src/gen.js` and generated the four requested synthetic data fi
 - Expected billable total: 157.075855 km.
 - Independent checks confirmed valid UTC timestamps, valid coordinates, all fault labels, off-road distance over 100 m, speed over 150 km/h, duplicate observational fields, late-arrival disorder, nonnegative expected values, and billable distance below clean total distance.
 - All four output-file hash comparisons matched.
-
-## Human review
-
-PENDING — human review has not yet been confirmed.

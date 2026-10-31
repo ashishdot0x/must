@@ -18,10 +18,10 @@ Included:
 
 Explicitly excluded:
 
-- Changes to the intentionally incorrect [src/naiveCalc.js](C:/Users/yowow/OneDrive/Desktop/MUST/match-hire-gps-qa/src/naiveCalc.js).
-- Changes to the synthetic dataset or [data/expected.csv](C:/Users/yowow/OneDrive/Desktop/MUST/match-hire-gps-qa/data/expected.csv).
+- Changes to the intentionally incorrect [src/naiveCalc.js](src/naiveCalc.js).
+- Changes to the synthetic dataset or [data/expected.csv](data/expected.csv).
 - Monetary loss calculations; no billing rate was supplied.
-- Final repository publication, commit creation, and video recording.
+- Final video recording; repository publication and commit metadata are recorded in the handoff appendix rather than treated as implementation scope.
 
 ## Requirements
 
@@ -65,7 +65,7 @@ Implementation assumptions requiring review:
 
 ## Before/after results
 
-The following table is transcribed from [reports/summary.csv](C:/Users/yowow/OneDrive/Desktop/MUST/match-hire-gps-qa/reports/summary.csv). Distances are rounded to six decimal places by the report.
+The following table is transcribed from [reports/summary.csv](reports/summary.csv). Distances are rounded to six decimal places by the report.
 
 | Driver | Local date | Expected km | Naive km | Fixed km | Naive error % | Fixed error % |
 |---|---|---:|---:|---:|---:|---:|
@@ -93,11 +93,11 @@ Using the six-decimal values in the report:
 - Fixed total signed difference: **-0.000077 km**.
 - Maximum fixed percentage error calculated from report-rounded values: **0.001125603%**.
 
-The higher-precision direct calculation recorded in [QA_LOG.md](C:/Users/yowow/OneDrive/Desktop/MUST/match-hire-gps-qa/QA_LOG.md) is 112.150725384 km naive absolute error, 0.000188524 km fixed absolute error, and 0.001070514% maximum fixed percentage error. The small difference is report rounding, not a dataset change. These are distance discrepancies, not monetary losses.
+The higher-precision direct calculation recorded in [QA_LOG.md](QA_LOG.md) is 112.150725384 km naive absolute error, 0.000188524 km fixed absolute error, and 0.001070514% maximum fixed percentage error. The small difference is report rounding, not a dataset change. These are distance discrepancies, not monetary losses.
 
 ## Regression evidence
 
-[reports/test_results.json](C:/Users/yowow/OneDrive/Desktop/MUST/match-hire-gps-qa/reports/test_results.json) records 38 total tests, 38 Vitest-passed assertions, zero failed, zero pending, and zero todo. The terminal run distinguishes this as 32 ordinary passes plus six expected naive failures. The six naive cases use `it.fails` because they intentionally demonstrate the known defects in the reference calculator; they are not six ordinary fixed-calculator failures.
+[reports/test_results.json](reports/test_results.json) records 38 total tests, 38 Vitest-passed assertions, zero failed, zero pending, and zero todo. The terminal run distinguishes this as 32 ordinary passes plus six expected naive failures. The six naive cases use `it.fails` because they intentionally demonstrate the known defects in the reference calculator; they are not six ordinary fixed-calculator failures.
 
 ## How to reproduce
 
@@ -123,12 +123,13 @@ npm run test:report
 - Boundary and hole-boundary policy is proposed rather than confirmed business policy.
 - Full generated expected values remain partly dependent on shared Turf/model assumptions; hand-built independent oracles cover selected analytical cases.
 - There is no billing rate, so distance differences cannot be converted into currency.
-- Human review and video recording are not complete.
+- The Loom video has not been recorded; submission is therefore incomplete.
 
 ## Handoff appendix
 
-- [REPO] TODO — no repository URL supplied.
+- [REPO] [https://github.com/ashishdot0x/must](https://github.com/ashishdot0x/must) — published GitHub repository.
 - [DATASET] `data/pings.csv` and `data/expected.csv` in this workspace.
 - [QA TOOL] `check.js` and the `check` / `check:map` npm scripts.
-- [FIX COMMIT] Pending — no Git history or commit hash is available in the current workspace.
+- [FIX COMMIT] Final snapshot: `cc017364c15bc45a1eb5677741623c888f05a5dd43` (`chore: finalize GPS QA submission`). The inspected history has no separate fix-only commit.
 - [TEST RESULTS] `reports/test_results.json`.
+- [SUBMISSION STATUS] GitHub repository published; Loom video not recorded; no Loom file or link is included.

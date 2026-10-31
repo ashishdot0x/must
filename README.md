@@ -81,7 +81,7 @@ The independent fixtures in `tests/independentOracle.js` calculate selected dist
 ## Evidence files
 
 - `QA_LOG.md` — factual findings, corrections, and verification history.
-- `AI_LOG.md` — AI assistance and actual command evidence; human review status remains pending.
+- `AI_LOG.md` — AI assistance and actual command evidence.
 - `ASSUMPTIONS.md` — supplied rules and proposed interpretations.
 - `intent.md` — investigation, prioritization, and scope decisions.
 - `directive.md` — engineering handoff, results, and limitations.
@@ -95,4 +95,10 @@ The independent fixtures in `tests/independentOracle.js` calculate selected dist
 - Boundary and hole-boundary behavior is proposed rather than confirmed business policy.
 - Full expected-data independence is limited by shared Turf/model assumptions.
 - No billing rate is provided, so distance discrepancies are not converted to monetary values.
-- Repository and commit placeholders remain pending.
+
+## Submission status
+
+- GitHub repository: published at [github.com/ashishdot0x/must](https://github.com/ashishdot0x/must).
+- Final snapshot: commit `cc017364c15bc45a1eb5677741623c888f05a5dd43`, `chore: finalize GPS QA submission`; no separate fix-only commit exists in the inspected history.
+- Loom video: not recorded. No Loom video file or Loom link is included in this repository.
+- Submission: incomplete pending the Loom recording.

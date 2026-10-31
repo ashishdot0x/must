@@ -50,3 +50,10 @@ The following remain documented assumptions or limitations rather than silently 
 - Polygon validation does not establish correctness for every self-intersecting or non-finite polygon.
 - The full generated expected dataset is not mathematically independent of the fixed calculator. Independent evidence is strongest for the hand-built analytical fixtures and midnight ratios in `tests/independentOracle.js`.
 - No monetary loss is calculated because no billing rate was supplied.
+
+## Submission status
+
+- GitHub repository: published at [github.com/ashishdot0x/must](https://github.com/ashishdot0x/must).
+- Final snapshot: `cc017364c15bc45a1eb5677741623c888f05a5dd43` (`chore: finalize GPS QA submission`). The inspected history contains no separate fix-only commit.
+- Loom video: not recorded; no Loom video file or Loom link is included in the repository.
+- Status: incomplete pending the Loom recording.

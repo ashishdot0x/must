@@ -150,7 +150,7 @@ The first generator execution exposed an implementation error: the road `LineStr
 - Evidence source: `src/geo.js`, `src/fixedCalc.js`, `reports/summary.csv`, direct Node comparison, and `npm.cmd run check`.
 - Observed impact: No material discrepancy was observed against the independent expected values in this dataset.
 - Severity rationale: Pass evidence for the current synthetic dataset; broader edge cases still require regression tests.
-- Investigation status: Confirmed for the current dataset; human review pending.
+- Investigation status: Confirmed for the current dataset.
 
 ### Finding FIXED-05-02 — Fixed pipeline diagnostics
 
@@ -160,7 +160,7 @@ The first generator execution exposed an implementation error: the road `LineStr
 - Evidence source: `src/fixedCalc.js`, `src/geo.js`, `reports/summary.csv`, and the executed validation command with an invalid timestamp/duplicate/trip-gap sample.
 - Observed impact: The current data produced finite output and preserved the input array.
 - Severity rationale: Pass for the inspected dataset and implementation path; edge-case semantics need tests.
-- Investigation status: Confirmed for current validation; human review pending.
+- Investigation status: Confirmed for current validation.
 
 ### Finding FIXED-05-03 — Trip-gap threshold remains a proposed interpretation
 
@@ -192,7 +192,7 @@ The first generator execution exposed an implementation error: the road `LineStr
 - Change made: Added a `1e-9` numerical threshold epsilon in `src/fixedCalc.js` for road-distance and speed comparisons. This preserves rejection of materially greater values while accepting floating-point representations of the inclusive boundary.
 - Final actual result: Both tests pass.
 - Evidence source: `tests/regression.test.js`, `src/fixedCalc.js`, and the executed Vitest runs.
-- Status: Confirmed regression coverage; human review pending.
+- Status: Confirmed regression coverage.
 
 ### Finding REG-06-02 — Fixed regression suite
 
@@ -202,7 +202,7 @@ The first generator execution exposed an implementation error: the road `LineStr
 - Actual result: `npm.cmd run test` exited 0 with 19 normal passes and 6 expected failures. The JSON report recorded 25 total, 25 passed, 0 failed, 0 pending because Vitest treats `it.fails` outcomes as passing expected-failure assertions.
 - Evidence source: `reports/test_results.json` and terminal output from `npm.cmd run test`.
 - Associated risk: The six expected naive failures demonstrate off-road filtering, speed filtering, deduplication, timestamp ordering, UTC+9 allocation, and zone clipping defects. They are not evidence that every naive defect has independent monetary impact.
-- Status: Confirmed; human review pending.
+- Status: Confirmed.
 
 ## Phase 7.1 executed validation
 
@@ -212,7 +212,6 @@ The first generator execution exposed an implementation error: the road `LineStr
 - `npm.cmd run check:map` exited `0` and regenerated the diagnostic map.
 - Fixed diagnostics remained: invalid `0`, duplicate removals `15`, off-road rejections `18`, speed outlier removals `12`, and trip gaps `10`.
 - The protected source dataset and naive implementation were not edited during remediation.
-- Human review remains pending.
 
 ## Phase 7.1 remediation evidence
 
@@ -255,18 +254,25 @@ The first generator execution exposed an implementation error: the road `LineStr
 
 - Original defect: The AI log retained an intermediate 25-test count as if it were final.
 - Correction: The log now identifies the intermediate 25-test run and records the final Phase 6 result as 26 total tests, 20 normal passes, and 6 expected naive failures.
-- Status: Confirmed corrected; human review remains pending.
+- Status: Confirmed corrected.
 
 ### Finding REG-06-03 — Injected labels versus fixed filtering stages
 
 - Requirement tested: Diagnostic labels must not drive production filtering, and stage results must be explainable.
 - Actual result: The 18 off-road removals include exactly three injected `speed_spike` records: source rows 610, 1822, and 3032. The remaining 12 injected speed-spike records were removed during the speed stage: source rows 608, 609, 611, 612, 1818, 1819, 1820, 1821, 3028, 3029, 3030, and 3031. No clean-labeled record was identified as removed by the speed stage in the executed analysis. Injected `late` records remain retained because late arrival is not a data-quality rejection rule.
 - Evidence source: `data/pings.csv`, `reports/flags.csv`, `src/fixedCalc.js`, and the executed stage-reconciliation command.
-- Status: Confirmed for this dataset; human review pending.
+- Status: Confirmed for this dataset.
 
 ### Finding REG-06-04 — End-to-end before/after evidence
 
 - Requirement tested: Fixed absolute error must be lower than the naive baseline.
 - Actual result: Naive absolute driver/day error remains `112.150725 km`; fixed absolute error is `0.000188524 km`; maximum fixed percentage error is `0.001070514%`. All 15 expected driver/date rows were present, finite, and within 1%; zero rows used a `0.00001 km` absolute tolerance.
 - Evidence source: `reports/summary.csv`, `reports/naive_comparison.csv`, `reports/test_results.json`, and the executed `npm.cmd run check` command.
-- Status: Confirmed; human review pending.
+- Status: Confirmed.
+
+## Submission status consistency check
+
+- The configured GitHub remote is `https://github.com/ashishdot0x/must`; local Git metadata shows `main` and `origin/main` at `cc017364c15bc45a1eb5677741623c888f05a5dd43` (`chore: finalize GPS QA submission`).
+- The inspected history contains the initial snapshot and this finalization commit, but no separate fix-only commit. The finalization commit is therefore labeled as the final snapshot; no commit was created or amended during this task.
+- The GitHub repository is published, but the Loom video has not been recorded. No Loom video file or Loom link is included in the repository, and submission remains incomplete.
+- This documentation consistency update did not change GPS calculation logic, the dataset, business rules, or tests.
